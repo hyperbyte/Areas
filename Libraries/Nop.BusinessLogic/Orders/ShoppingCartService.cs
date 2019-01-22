@@ -341,7 +341,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Orders
             }
             resultTemp += paymentMethodAdditionalFeeWithoutTax;
             resultTemp += shoppingCartTax;
-            resultTemp = Math.Round(resultTemp, 2);
+            //resultTemp = Math.Round(resultTemp, 2, MidpointRounding.AwayFromZero);
 
             #region Discount
 
@@ -356,7 +356,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Orders
 
             if (resultTemp < decimal.Zero)
                 resultTemp = decimal.Zero;
-            resultTemp = Math.Round(resultTemp, 2);
+            //resultTemp = Math.Round(resultTemp, 2, MidpointRounding.AwayFromZero);
 
             #endregion
 
@@ -394,7 +394,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Orders
 
             if (resultTemp < decimal.Zero)
                 resultTemp = decimal.Zero;
-            resultTemp = Math.Round(resultTemp, 2);
+            //resultTemp = Math.Round(resultTemp, 2, MidpointRounding.AwayFromZero);
 
             decimal? orderTotal = null;
             if (!String.IsNullOrEmpty(subTotalError) ||
@@ -436,7 +436,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Orders
             if (orderTotal.HasValue)
             {
                 orderTotal = orderTotal.Value - redeemedRewardPointsAmount;
-                orderTotal = Math.Round(orderTotal.Value, 2);
+                //orderTotal = Math.Round(orderTotal.Value, 2, MidpointRounding.AwayFromZero);
                 return orderTotal;
             }
             else
@@ -594,7 +594,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Orders
                 subTotalWithoutDiscount = subTotalExclTaxWithoutDiscount;
             if (subTotalWithoutDiscount < decimal.Zero)
                 subTotalWithoutDiscount = decimal.Zero;
-            subTotalWithoutDiscount = Math.Round(subTotalWithoutDiscount, 2);
+            //subTotalWithoutDiscount = Math.Round(subTotalWithoutDiscount, 2, MidpointRounding.AwayFromZero);
 
             /*We calculate discount amount on order subtotal excl tax (discount first)*/            
             //calculate discount amount ('Applied to order subtotal' discount)
@@ -621,7 +621,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Orders
                         decimal discountTax = taxRates[taxRate] * (discountAmountExclTax / subTotalExclTaxWithoutDiscount);
                         discountAmountInclTax += discountTax;
                         taxValue = taxRates[taxRate] - discountTax;
-                        taxValue = Math.Round(taxValue, 2);
+                        //taxValue = Math.Round(taxValue, 2, MidpointRounding.AwayFromZero);
                         taxRates[taxRate] = taxValue;
                     }
 
@@ -629,7 +629,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Orders
                     subTotalInclTaxWithDiscount += taxValue;
                 }
             }
-            discountAmountInclTax = Math.Round(discountAmountInclTax, 2);            
+            //discountAmountInclTax = Math.Round(discountAmountInclTax, 2, MidpointRounding.AwayFromZero);            
 
             if (includingTax)
             {
@@ -645,7 +645,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Orders
             //round
             if (subTotalWithDiscount < decimal.Zero)
                 subTotalWithDiscount = decimal.Zero;
-            subTotalWithDiscount = Math.Round(subTotalWithDiscount, 2);
+            //subTotalWithDiscount = Math.Round(subTotalWithDiscount, 2, MidpointRounding.AwayFromZero);
 
             return error;
         }
@@ -692,7 +692,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Orders
             if (discountAmount < decimal.Zero)
                 discountAmount = decimal.Zero;
 
-            discountAmount = Math.Round(discountAmount, 2);
+            //discountAmount = Math.Round(discountAmount, 2, MidpointRounding.AwayFromZero);
 
             return discountAmount;
         }
@@ -739,7 +739,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Orders
             if (discountAmount < decimal.Zero)
                 discountAmount = decimal.Zero;
 
-            discountAmount = Math.Round(discountAmount, 2);
+            //discountAmount = Math.Round(discountAmount, 2, MidpointRounding.AwayFromZero);
 
             return discountAmount;
         }
@@ -1289,7 +1289,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Orders
                     bool customerEnteredPricesEqual = true;
                     if (_shoppingCartItem.ProductVariant.CustomerEntersPrice)
                     {
-                        customerEnteredPricesEqual = Math.Round(_shoppingCartItem.CustomerEnteredPrice, 2) == Math.Round(customerEnteredPrice, 2);
+                        customerEnteredPricesEqual = Math.Round(_shoppingCartItem.CustomerEnteredPrice, 2, MidpointRounding.AwayFromZero) == Math.Round(customerEnteredPrice, 2, MidpointRounding.AwayFromZero);
                     }
 
                     if (attributesEqual &&

@@ -32,6 +32,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -6341,7 +6343,7 @@
     <Content Include="App_Themes\darkBlue\images\ico-register.gif" />
     <Content Include="App_Themes\darkBlue\images\ico-wishlist.gif" />
     <Content Include="App_Themes\darkBlue\images\loading.gif" />
-    <Content Include="App_Themes\darkBlue\images\logo.gif" />
+    <Content Include="App_Themes\darkBlue\images\logo.png" />
     <Content Include="App_Themes\darkBlue\images\logo1.gif" />
     <Content Include="App_Themes\darkBlue\images\nextlabel.gif" />
     <Content Include="App_Themes\darkBlue\images\orange_button_bg.gif" />
@@ -6551,6 +6553,7 @@
     <Content Include="fontawesome\css\font-awesome.min.css" />
     <Content Include="fontawesome\fonts\fontawesome-webfont.svg" />
     <Content Include="fontawesome\HELP-US-OUT.txt" />
+    <Content Include="images\10off.png" />
     <Content Include="Modules\ProductBox3.ascx" />
     <Content Include="WishlistEmailAFriend.aspx" />
     <Content Include="editors\fckeditor\editor\css\behaviors\disablehandles.htc" />
@@ -7137,6 +7140,7 @@
     <Content Include="TwoCheckoutReturn.aspx" />
     <Content Include="Wishlist.aspx" />
     <Content Include="WorldpayReturn.aspx" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AboutUs.aspx" />
@@ -7999,11 +8003,11 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>11139</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/NopCommerceStore</IISUrl>
+          <IISUrl>http://localhost/Final</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -61,7 +61,10 @@ namespace NopSolutions.NopCommerce.Shipping.Methods.ShippingByWeightCM
             if (!shippingByWeight.UsePercentage && shippingByWeight.ShippingChargeAmount <= decimal.Zero)
                 return decimal.Zero;
             if (shippingByWeight.UsePercentage)
-                shippingTotal = Math.Round((decimal)((((float)subTotal) * ((float)shippingByWeight.ShippingChargePercentage)) / 100f), 2);
+            {
+                shippingTotal = (decimal)(((float)subTotal) * ((float)shippingByWeight.ShippingChargePercentage) / 100f);
+                //shippingTotal = Math.Round(shippingTotal.Value, 2, MidpointRounding.AwayFromZero);
+            }
             else
             {
                 if (IoC.Resolve<IShippingByWeightService>().CalculatePerWeightUnit)

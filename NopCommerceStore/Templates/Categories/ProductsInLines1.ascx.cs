@@ -39,7 +39,7 @@ using NopSolutions.NopCommerce.BusinessLogic.Infrastructure;
 
 namespace NopSolutions.NopCommerce.Web.Templates.Categories
 {
-    public partial class ProductsInLines1: BaseNopFrontendUserControl
+    public partial class ProductsInLines1 : BaseNopFrontendUserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -109,7 +109,7 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
 
             //page size
             int totalRecords = 0;
-            int pageSize = 12;
+            int pageSize = 10;
             if (category.PageSize > 0)
             {
                 pageSize = category.PageSize;
@@ -142,27 +142,27 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
             ProductSortingEnum orderBy = ProductSortingEnum.Position;
             if (this.SettingManager.GetSettingValueBoolean("Common.AllowProductSorting"))
             {
-                CommonHelper.SelectListItem(this.ddlSorting, CommonHelper.QueryStringInt("orderby"));            
+                CommonHelper.SelectListItem(this.ddlSorting, CommonHelper.QueryStringInt("orderby"));
                 orderBy = (ProductSortingEnum)Enum.ToObject(typeof(ProductSortingEnum), int.Parse(ddlSorting.SelectedItem.Value));
             }
 
             var productCollection = this.ProductService.GetAllProducts(this.CategoryId,
                 0, 0, false, minPriceConverted, maxPriceConverted,
-                string.Empty, false, pageSize, this.CurrentPageIndex, 
+                string.Empty, false, pageSize, this.CurrentPageIndex,
                 psoFilterOption, orderBy, out totalRecords);
 
             if (productCollection.Count > 0)
             {
-                this.productsPager.PageSize = pageSize;
-                this.productsPager.TotalRecords = totalRecords;
-                this.productsPager.PageIndex = this.CurrentPageIndex;
+                this.catalogPager.PageSize = pageSize;
+                this.catalogPager.TotalRecords = totalRecords;
+                this.catalogPager.PageIndex = this.CurrentPageIndex;
 
-                this.dlProducts.DataSource = productCollection;
-                this.dlProducts.DataBind();
+                this.lvCatalog.DataSource = productCollection;
+                this.lvCatalog.DataBind();
             }
             else
             {
-                this.dlProducts.Visible = false;
+                this.lvCatalog.Visible = false;
                 this.pnlSorting.Visible = false;
             }
         }
@@ -177,17 +177,16 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
+            ctrlPriceRangeFilter.ExcludedQueryStringParams = catalogPager.QueryStringProperty;
 
-            ctrlPriceRangeFilter.ExcludedQueryStringParams = productsPager.QueryStringProperty;
-
-            ctrlProductSpecificationFilter.ExcludedQueryStringParams = productsPager.QueryStringProperty;
+            ctrlProductSpecificationFilter.ExcludedQueryStringParams = catalogPager.QueryStringProperty;
             ctrlProductSpecificationFilter.CategoryId = this.CategoryId;
 
             ctrlProductSpecificationFilter.ReservedQueryStringParams = "CategoryId,";
             ctrlProductSpecificationFilter.ReservedQueryStringParams += "orderby,";
             ctrlProductSpecificationFilter.ReservedQueryStringParams += ctrlPriceRangeFilter.QueryStringProperty;
             ctrlProductSpecificationFilter.ReservedQueryStringParams += ",";
-            ctrlProductSpecificationFilter.ReservedQueryStringParams += productsPager.QueryStringProperty;
+            ctrlProductSpecificationFilter.ReservedQueryStringParams += catalogPager.QueryStringProperty;
         }
 
         protected override void OnPreRender(EventArgs e)
@@ -226,7 +225,7 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
         {
             get
             {
-                int _pageIndex = CommonHelper.QueryStringInt(productsPager.QueryStringProperty);
+                int _pageIndex = CommonHelper.QueryStringInt(catalogPager.QueryStringProperty);
                 _pageIndex--;
                 if (_pageIndex < 0)
                     _pageIndex = 0;

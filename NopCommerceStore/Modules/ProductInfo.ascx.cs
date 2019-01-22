@@ -52,6 +52,8 @@ namespace NopSolutions.NopCommerce.Web.Modules
                 lShortDescription.Text = product.LocalizedShortDescription;
                 lFullDescription.Text = product.LocalizedFullDescription;
 
+                
+
                 //manufacturers
                 List<Manufacturer> manufacturers = new List<Manufacturer>();
                 foreach (var pm in product.ProductManufacturers)

@@ -37,10 +37,11 @@ using NopSolutions.NopCommerce.Common.Utils;
 using System.Text.RegularExpressions;
 using System.Globalization;
 using NopSolutions.NopCommerce.BusinessLogic.Infrastructure;
+using NopSolutions.NopCommerce.BusinessLogic.Promo.Discounts;
 
 namespace NopSolutions.NopCommerce.Web.Modules
 {
-    public partial class ProductPrice1Control: BaseNopFrontendUserControl
+    public partial class ProductPrice1Control : BaseNopFrontendUserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -83,6 +84,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
                             decimal oldPriceBase = this.TaxService.GetPrice(productVariant, productVariant.OldPrice, out taxRate);
                             decimal finalPriceWithoutDiscountBase = this.TaxService.GetPrice(productVariant, PriceHelper.GetFinalPrice(productVariant, false), out taxRate);
                             decimal finalPriceWithDiscountBase = this.TaxService.GetPrice(productVariant, PriceHelper.GetFinalPrice(productVariant, true), out taxRate);
+                            Discount discount = PriceHelper.GetPriceDiscount(productVariant);
 
                             decimal oldPrice = this.CurrencyService.ConvertCurrency(oldPriceBase, this.CurrencyService.PrimaryStoreCurrency, NopContext.Current.WorkingCurrency);
                             decimal finalPriceWithoutDiscount = this.CurrencyService.ConvertCurrency(finalPriceWithoutDiscountBase, this.CurrencyService.PrimaryStoreCurrency, NopContext.Current.WorkingCurrency);
@@ -100,6 +102,15 @@ namespace NopSolutions.NopCommerce.Web.Modules
                                 phOldPrice.Visible = false;
                             }
 
+                            if (object.ReferenceEquals(discount, null))
+                            {
+                                phDiscountPercent.Visible = false;
+                            }
+                            else
+                            {
+                                lblDiscountPercent.Text = PriceHelper.FormatDiscount(discount.DiscountPercentage);
+                            }
+
                             if (finalPriceWithoutDiscountBase != finalPriceWithDiscountBase)
                             {
                                 lblFinalPriceWithDiscount.Text = PriceHelper.FormatPrice(finalPriceWithDiscount);
@@ -112,7 +123,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
 
                             if (phDiscount.Visible)
                             {
-                                lblPriceValue.CssClass = string.Empty;
+                                lblPriceValue.CssClass = "noDiscountPrice";
                             }
                             else
                             {
@@ -153,10 +164,10 @@ namespace NopSolutions.NopCommerce.Web.Modules
 
         protected override void OnPreRender(EventArgs e)
         {
-            if(this.SettingManager.GetSettingValueBoolean("ProductAttribute.EnableDynamicPriceUpdate"))
+            if (this.SettingManager.GetSettingValueBoolean("ProductAttribute.EnableDynamicPriceUpdate"))
             {
                 var productVariant = this.ProductService.GetProductVariantById(this.ProductVariantId);
-                if(productVariant != null && !productVariant.CallForPrice)
+                if (productVariant != null && !productVariant.CallForPrice)
                 {
                     decimal taxRate = decimal.Zero;
                     decimal finalPriceWithoutDiscountBase = this.TaxService.GetPrice(productVariant, PriceHelper.GetFinalPrice(productVariant, false), out taxRate);

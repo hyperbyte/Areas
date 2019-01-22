@@ -112,21 +112,21 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories {
         protected global::NopSolutions.NopCommerce.Web.Modules.ProductSpecificationFilterControl ctrlProductSpecificationFilter;
         
         /// <summary>
-        /// dlProducts control.
+        /// lvCatalog control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dlProducts;
+        protected global::System.Web.UI.WebControls.ListView lvCatalog;
         
         /// <summary>
-        /// productsPager control.
+        /// catalogPager control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::NopSolutions.NopCommerce.Controls.Pager productsPager;
+        protected global::NopSolutions.NopCommerce.Controls.Pager catalogPager;
     }
 }

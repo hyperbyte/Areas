@@ -736,7 +736,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Shipping
                 shippingTotalWithDiscount = shippingTotalWithoutDiscount - discountAmount;
                 if (shippingTotalWithDiscount < decimal.Zero)
                     shippingTotalWithDiscount = decimal.Zero;
-                shippingTotalWithDiscount = Math.Round(shippingTotalWithDiscount.Value, 2);
+                //shippingTotalWithDiscount = Math.Round(shippingTotalWithDiscount.Value, 2, MidpointRounding.AwayFromZero);
             }
             else
             {
@@ -761,7 +761,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Shipping
                     {
                         decimal additionalShippingCharge = GetShoppingCartAdditionalShippingCharge(cart, customer);
                         shippingTotalWithoutDiscount = fixedRate.Value + additionalShippingCharge;
-                        shippingTotalWithoutDiscount = Math.Round(shippingTotalWithoutDiscount.Value, 2);
+                        //shippingTotalWithoutDiscount = Math.Round(shippingTotalWithoutDiscount.Value, 2, MidpointRounding.AwayFromZero);
                         decimal shippingTotalDiscount = GetShippingDiscount(customer, shippingTotalWithoutDiscount.Value, out appliedDiscount);
                         shippingTotalWithDiscount = shippingTotalWithoutDiscount.Value - shippingTotalDiscount;
                         if (shippingTotalWithDiscount.Value < decimal.Zero)
@@ -782,7 +782,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Shipping
                     out taxRate,
                     ref error);
 
-                shippingTotalWithDiscountTaxed = Math.Round(shippingTotalWithDiscountTaxed.Value, 2);
+                //shippingTotalWithDiscountTaxed = Math.Round(shippingTotalWithDiscountTaxed.Value, 2, MidpointRounding.AwayFromZero);
             }
 
             return shippingTotalWithDiscountTaxed;
@@ -830,7 +830,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Shipping
             if (shippingDiscountAmount < decimal.Zero)
                 shippingDiscountAmount = decimal.Zero;
 
-            shippingDiscountAmount = Math.Round(shippingDiscountAmount, 2);
+            //shippingDiscountAmount = Math.Round(shippingDiscountAmount, 2, MidpointRounding.AwayFromZero);
 
             return shippingDiscountAmount;
         }

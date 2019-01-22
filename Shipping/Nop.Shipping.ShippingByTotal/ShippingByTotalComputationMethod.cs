@@ -67,7 +67,10 @@ namespace NopSolutions.NopCommerce.Shipping.Methods.ShippingByTotalCM
             if (!shippingByTotal.UsePercentage && shippingByTotal.ShippingChargeAmount <= decimal.Zero)
                 return decimal.Zero;
             if (shippingByTotal.UsePercentage)
-                shippingTotal = Math.Round((decimal)((((float)subTotal) * ((float)shippingByTotal.ShippingChargePercentage)) / 100f), 2);
+            {
+                shippingTotal = (decimal)((((float)subTotal) * ((float)shippingByTotal.ShippingChargePercentage)) / 100f);
+                shippingTotal = Math.Round(shippingTotal.Value, 2, MidpointRounding.AwayFromZero);
+            }
             else
                 shippingTotal = shippingByTotal.ShippingChargeAmount;
 
@@ -127,7 +130,7 @@ namespace NopSolutions.NopCommerce.Shipping.Methods.ShippingByTotalCM
 
             return shippingOptions;
         }
-        
+
         /// <summary>
         /// Gets fixed shipping rate (if shipping rate computation method allows it and the rate can be calculated before checkout).
         /// </summary>

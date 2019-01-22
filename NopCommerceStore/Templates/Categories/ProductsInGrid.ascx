@@ -1,11 +1,10 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="NopSolutions.NopCommerce.Web.Templates.Categories.ProductsInGrid"
-    CodeBehind="ProductsInGrid.ascx.cs" %>
-<%@ Register TagPrefix="nopCommerce" TagName="ProductBox1" Src="~/Modules/ProductBox1.ascx" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="NopSolutions.NopCommerce.Web.Templates.Categories.ProductsInGrid" CodeBehind="ProductsInGrid.ascx.cs" %>
+<%@ Register TagPrefix="nopCommerce" TagName="ProductBox3" Src="~/Modules/ProductBox3.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="PriceRangeFilter" Src="~/Modules/PriceRangeFilter.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ProductSpecificationFilter" Src="~/Modules/ProductSpecificationFilter.ascx" %>
 <div class="category-page">
     <% if (this.SettingManager.GetSettingValueBoolean("Media.CategoryBreadcrumbEnabled"))
-       { %>
+        { %>
     <div class="breadcrumb">
         <a href='<%=CommonHelper.GetStoreLocation()%>'>
             <%=GetLocaleResourceString("Breadcrumb.Top")%></a> /
@@ -53,8 +52,7 @@
             <asp:DataList ID="dlFeaturedProducts" runat="server" RepeatColumns="2" RepeatDirection="Horizontal"
                 RepeatLayout="Table" ItemStyle-CssClass="item-box">
                 <ItemTemplate>
-                    <nopCommerce:ProductBox1 ID="ctrlProductBox" Product='<%# Container.DataItem %>'
-                        runat="server" />
+                    <nopCommerce:ProductBox3 ID="ctrlProductBox" Product='<%# Container.DataItem %>' runat="server" />
                 </ItemTemplate>
             </asp:DataList>
         </div>
@@ -84,11 +82,9 @@
     <div class="clear">
     </div>
     <div class="product-grid">
-        <asp:DataList ID="dlProducts" runat="server" RepeatColumns="2" RepeatDirection="Horizontal"
-            RepeatLayout="Table" ItemStyle-CssClass="item-box">
+        <asp:DataList ID="dlProducts" runat="server" RepeatColumns="3" RepeatDirection="Horizontal" RepeatLayout="Table" ItemStyle-CssClass="item-box">
             <ItemTemplate>
-                <nopCommerce:ProductBox1 ID="ctrlProductBox" Product='<%# Container.DataItem %>'
-                    runat="server" />
+                <nopCommerce:ProductBox3 ID="ctrlProductBox" Product='<%# Container.DataItem %>' runat="server" />
             </ItemTemplate>
         </asp:DataList>
     </div>

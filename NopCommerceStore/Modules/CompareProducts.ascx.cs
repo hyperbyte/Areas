@@ -212,7 +212,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
                     this.tblCompareProducts.Rows.Add(productRow);
                 }
 
-                string width = Math.Round((decimal)(90M / compareProducts.Count), 0).ToString() + "%";
+                string width = Math.Round((decimal)(90M / compareProducts.Count), 0, MidpointRounding.AwayFromZero).ToString() + "%";
                 for (int i = 0; i < this.tblCompareProducts.Rows.Count; i++)
                 {
                     var row = this.tblCompareProducts.Rows[i];

@@ -110,9 +110,9 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Promo.Discounts
         {
             decimal result = decimal.Zero;
             if (discount.UsePercentage)
-                result = Math.Round((decimal)((((float)price) * ((float)discount.DiscountPercentage)) / 100f), 2);
+                result = price * discount.DiscountPercentage / 100M; //Math.Round((decimal)((((float)price) * ((float)discount.DiscountPercentage)) / 100f), 2, MidpointRounding.AwayFromZero);
             else
-                result = Math.Round(discount.DiscountAmount, 2);
+                result = discount.DiscountAmount;//Math.Round(discount.DiscountAmount, 2, MidpointRounding.AwayFromZero);
 
             if (result < decimal.Zero)
                 result = decimal.Zero;

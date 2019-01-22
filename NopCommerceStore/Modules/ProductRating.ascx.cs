@@ -50,7 +50,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
                 if (product.TotalRatingVotes != 0)
                     currentRating = (decimal)product.RatingSum / (decimal)product.TotalRatingVotes;
 
-                productRating.CurrentRating = (int)Math.Round(currentRating);
+                productRating.CurrentRating = (int)Math.Round(currentRating, MidpointRounding.AwayFromZero);
 
                 lblProductRatingResult.Text = string.Format(GetLocaleResourceString("Products.CurrentRating"), currentRating.ToString("N"), product.TotalRatingVotes);
 

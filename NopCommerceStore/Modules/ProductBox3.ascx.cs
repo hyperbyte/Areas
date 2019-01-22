@@ -43,7 +43,10 @@ namespace NopSolutions.NopCommerce.Web.Modules
                 string productURL = SEOHelper.GetProductUrl(product);
 
                 hlProduct.NavigateUrl = productURL;
-                hlProduct.Text = Server.HtmlEncode(product.LocalizedName);
+                var name = product.LocalizedName;
+                if (name.Length > 38) { name = string.Concat(name.Substring(0, 34), "..."); }
+                hlProduct.Text = Server.HtmlEncode(name);
+                hlProduct.ToolTip = product.LocalizedName;
 
                 var picture = product.DefaultPicture;
                 if (picture != null)
@@ -156,7 +159,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
             get
             {
                 if (ViewState["ProductImageSize"] == null)
-                    return 125; //this.SettingManager.GetSettingValueInteger("Media.Product.ThumbnailImageSize", 125);
+                    return 250; //this.SettingManager.GetSettingValueInteger("Media.Product.ThumbnailImageSize", 125);
                 else
                     return (int)ViewState["ProductImageSize"];
             }

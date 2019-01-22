@@ -19,13 +19,13 @@
             <nopCommerce:ManufacturerNavigation ID="ctrlManufacturerNavigation" runat="server" />
             <div class="clear">
             </div>
-            <nopCommerce:PopularTags ID="ctrlPopularTags" runat="server" /> 
+            <nopCommerce:PopularTags ID="ctrlPopularTags" runat="server" />
             <div class="clear">
             </div>
             <nopCommerce:InfoBlock ID="ctrlInfoBlock" runat="server" />
             <div class="clear">
             </div>
-            <nopCommerce:PollBlock ID="ctrlPollLeft" runat="server" SystemKeyword="LeftColumnPoll" />           
+            <nopCommerce:PollBlock ID="ctrlPollLeft" runat="server" SystemKeyword="LeftColumnPoll" />
         </asp:ContentPlaceHolder>
     </div>
     <div class="master-wrapper-center-3">
@@ -36,6 +36,21 @@
     </div>
     <div class="master-wrapper-rightside-3">
         <asp:ContentPlaceHolder ID="cph3" runat="server">
+            <%--<asp:Image ID="UIImageDiscount" runat="server" AlternateText="10% de desconto" ImageUrl="~/images/10off.png" Style="width: 180px; border-radius: 20px; margin: 0; margin-bottom: 20px;" />--%>
+            <div class="tenOff">
+                <span style="font-size: 72px; color: #F5B53E; font-weight: 900;">10&percnt;</span>
+                <span style="font-size: 26px; display: block; color: #F5B53E; text-transform: uppercase; font-weight: 700;">Desconto</span>
+                <span style="font-size: 12px; white-space: nowrap; color: rgb(199, 200, 201); font-weight: bold;">Todos os Livros</span>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="freeShiping">
+                <asp:LinkButton runat="server" ID="UILinkButtonFreeShipping" PostBackUrl="~/conditionsinfo.aspx">
+                    <span style="font-weight: bold;font-size: 16px;">PORTES GR&Aacute;TIS</span>
+                </asp:LinkButton>
+            </div>
+            <div class="clear">
+            </div>
             <nopCommerce:MiniShoppingCartBox ID="ctrlMiniShoppingCartBox" runat="server" />
             <div class="clear">
             </div>

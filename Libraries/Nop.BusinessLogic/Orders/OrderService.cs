@@ -3872,7 +3872,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Orders
             if (order == null)
                 return order;
 
-            amountToRefund = Math.Round(amountToRefund, 2);
+            //amountToRefund = Math.Round(amountToRefund, 2, MidpointRounding.AwayFromZero);
 
             if (!CanPartiallyRefund(order, amountToRefund))
                 throw new NopException("Can not do partial refund for order.");
@@ -3969,7 +3969,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Orders
             if (order == null)
                 return order;
 
-            amountToRefund = Math.Round(amountToRefund, 2);
+            //amountToRefund = Math.Round(amountToRefund, 2, MidpointRounding.AwayFromZero);
 
             if (!CanPartiallyRefundOffline(order, amountToRefund))
                 throw new NopException("You can't partially refund (offline) this order");
@@ -4127,7 +4127,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Orders
                 return decimal.Zero;
 
             result = rewardPoints * this.RewardPointsExchangeRate;            
-            result = Math.Round(result, 2);
+            //result = Math.Round(result, 2, MidpointRounding.AwayFromZero);
             return result;
         }
 

@@ -10,8 +10,7 @@
 <%@ Reference Control="~/Modules/ProductAttributes.ascx" %>
 <%@ Reference Control="~/Modules/EmailTextBox.ascx" %>
 <div class="product-variant-list">
-    <asp:Repeater ID="rptVariants" runat="server" OnItemCommand="rptVariants_OnItemCommand"
-        OnItemDataBound="rptVariants_OnItemDataBound">
+    <asp:Repeater ID="rptVariants" runat="server" OnItemCommand="rptVariants_OnItemCommand" OnItemDataBound="rptVariants_OnItemDataBound">
         <ItemTemplate>
             <div class="product-variant-line">
                 <div class="picture">

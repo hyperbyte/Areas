@@ -61,7 +61,10 @@ namespace NopSolutions.NopCommerce.Shipping.Methods.ShippingByWeightAndCountryCM
             if (!shippingByWeightAndCountry.UsePercentage && shippingByWeightAndCountry.ShippingChargeAmount <= decimal.Zero)
                 return decimal.Zero;
             if (shippingByWeightAndCountry.UsePercentage)
-                shippingTotal = Math.Round((decimal)((((float)subTotal) * ((float)shippingByWeightAndCountry.ShippingChargePercentage)) / 100f), 2);
+            {
+                shippingTotal = (decimal)(((float)subTotal) * ((float)shippingByWeightAndCountry.ShippingChargePercentage) / 100f);
+                shippingTotal = Math.Round(shippingTotal.Value, 2, MidpointRounding.AwayFromZero);
+            }
             else
             {
                 if (IoC.Resolve<IShippingByWeightAndCountryService>().CalculatePerWeightUnit)
@@ -71,15 +74,15 @@ namespace NopSolutions.NopCommerce.Shipping.Methods.ShippingByWeightAndCountryCM
                 else
                 {
                     shippingTotal = shippingByWeightAndCountry.ShippingChargeAmount;
-                }                
+                }
             }
             if (shippingTotal < decimal.Zero)
                 shippingTotal = decimal.Zero;
             return shippingTotal;
         }
-        
+
         #endregion
-        
+
         #region Methods
         /// <summary>
         ///  Gets available shipping options

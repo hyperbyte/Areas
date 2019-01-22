@@ -60,7 +60,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Orders
 
             if (result < decimal.Zero)
                 result = decimal.Zero;
-            result = Math.Round(result, 2);
+            //result = Math.Round(result, 2, MidpointRounding.AwayFromZero);
 
             return result;
         }

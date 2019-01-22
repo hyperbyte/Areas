@@ -49,15 +49,6 @@ namespace NopSolutions.NopCommerce.Web.Templates.Products {
         protected global::NopSolutions.NopCommerce.Web.Modules.ProductRatingControl ctrlProductRating;
         
         /// <summary>
-        /// ctrlProductEmailAFriendButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::NopSolutions.NopCommerce.Web.Modules.ProductEmailAFriendButton ctrlProductEmailAFriendButton;
-        
-        /// <summary>
         /// ctrlProductAddToCompareList control.
         /// </summary>
         /// <remarks>

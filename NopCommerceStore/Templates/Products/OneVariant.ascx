@@ -2,7 +2,7 @@
     Inherits="NopSolutions.NopCommerce.Web.Templates.Products.OneVariant" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ProductCategoryBreadcrumb" Src="~/Modules/ProductCategoryBreadcrumb.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ProductRating" Src="~/Modules/ProductRating.ascx" %>
-<%@ Register TagPrefix="nopCommerce" TagName="ProductEmailAFriendButton" Src="~/Modules/ProductEmailAFriendButton.ascx" %>
+<%--<%@ Register TagPrefix="nopCommerce" TagName="ProductEmailAFriendButton" Src="~/Modules/ProductEmailAFriendButton.ascx" %>--%>
 <%@ Register TagPrefix="nopCommerce" TagName="ProductAddToCompareList" Src="~/Modules/ProductAddToCompareList.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ProductSpecs" Src="~/Modules/ProductSpecifications.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="RelatedProducts" Src="~/Modules/RelatedProducts.ascx" %>
@@ -130,7 +130,7 @@
                     <asp:Label ID="lblStockAvailablity" runat="server" />
                 </asp:Panel>
                 <br />
-                <nopCommerce:ProductEmailAFriendButton ID="ctrlProductEmailAFriendButton" runat="server" />
+                <%--<nopCommerce:ProductEmailAFriendButton ID="ctrlProductEmailAFriendButton" runat="server" />--%>
                 <nopCommerce:ProductAddToCompareList ID="ctrlProductAddToCompareList" runat="server" />
                 <div class="clear">
                 </div>

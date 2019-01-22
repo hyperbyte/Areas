@@ -1,6 +1,6 @@
 <%@ Control Language="C#" AutoEventWireup="true" Inherits="NopSolutions.NopCommerce.Web.Modules.RecentlyAddedProductsControl"
     CodeBehind="RecentlyAddedProducts.ascx.cs" %>
-<%@ Register TagPrefix="nopCommerce" TagName="ProductBox1" Src="~/Modules/ProductBox1.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="ProductBox1" Src="~/Modules/ProductBox3.ascx" %>
 <div class="recently-added-products">
     <div class="page-title">
         <table width="100%">
@@ -20,7 +20,7 @@
     <div class="clear">
     </div>
     <div class="product-grid">
-        <asp:DataList ID="dlCatalog" runat="server" RepeatColumns="2" RepeatDirection="Horizontal"
+        <asp:DataList ID="dlCatalog" runat="server" RepeatColumns="3" RepeatDirection="Horizontal"
             RepeatLayout="Table" ItemStyle-CssClass="item-box">
             <ItemTemplate>
                 <nopCommerce:ProductBox1 ID="ctrlProductBox" Product='<%# Container.DataItem %>'

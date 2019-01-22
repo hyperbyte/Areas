@@ -254,7 +254,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Directory
                 result = ConvertToPrimaryExchangeRateCurrency(result, sourceCurrencyCode);
                 result = ConvertFromPrimaryExchangeRateCurrency(result, targetCurrencyCode);
             }
-            result = Math.Round(result, 2);
+            //result = Math.Round(result, 2, MidpointRounding.AwayFromZero);
             return result;
         }
 

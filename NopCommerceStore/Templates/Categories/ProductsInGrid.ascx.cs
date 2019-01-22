@@ -38,7 +38,7 @@ using NopSolutions.NopCommerce.BusinessLogic.Infrastructure;
 
 namespace NopSolutions.NopCommerce.Web.Templates.Categories
 {
-    public partial class ProductsInGrid: BaseNopFrontendUserControl
+    public partial class ProductsInGrid : BaseNopFrontendUserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -108,7 +108,7 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
 
             //page size
             int totalRecords = 0;
-            int pageSize = 10;
+            int pageSize = 12;
             if (category.PageSize > 0)
             {
                 pageSize = category.PageSize;
@@ -141,13 +141,13 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
             ProductSortingEnum orderBy = ProductSortingEnum.Position;
             if (this.SettingManager.GetSettingValueBoolean("Common.AllowProductSorting"))
             {
-                CommonHelper.SelectListItem(this.ddlSorting, CommonHelper.QueryStringInt("orderby"));            
+                CommonHelper.SelectListItem(this.ddlSorting, CommonHelper.QueryStringInt("orderby"));
                 orderBy = (ProductSortingEnum)Enum.ToObject(typeof(ProductSortingEnum), int.Parse(ddlSorting.SelectedItem.Value));
             }
 
             var productCollection = this.ProductService.GetAllProducts(this.CategoryId,
                 0, 0, false, minPriceConverted, maxPriceConverted,
-                string.Empty, false, pageSize, this.CurrentPageIndex, 
+                string.Empty, false, pageSize, this.CurrentPageIndex,
                 psoFilterOption, orderBy, out totalRecords);
 
             if (productCollection.Count > 0)
@@ -205,7 +205,7 @@ namespace NopSolutions.NopCommerce.Web.Templates.Categories
                 var hlImageLink = e.Item.FindControl("hlImageLink") as HyperLink;
                 if (hlImageLink != null)
                 {
-                    hlImageLink.ImageUrl = this.PictureService.GetPictureUrl(category.PictureId, this.SettingManager.GetSettingValueInteger("Media.Category.ThumbnailImageSize", 125), true);
+                    hlImageLink.ImageUrl = this.PictureService.GetPictureUrl(category.PictureId, this.SettingManager.GetSettingValueInteger("Media.Category.ThumbnailImageSize", 300), true);
                     hlImageLink.NavigateUrl = categoryURL;
                     hlImageLink.ToolTip = String.Format(GetLocaleResourceString("Media.Category.ImageLinkTitleFormat"), category.LocalizedName);
                     hlImageLink.Text = String.Format(GetLocaleResourceString("Media.Category.ImageAlternateTextFormat"), category.LocalizedName);

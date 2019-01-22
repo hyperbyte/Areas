@@ -232,7 +232,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Measures
                 result = ConvertToPrimaryMeasureDimension(result, sourceMeasureDimension);
                 result = ConvertFromPrimaryMeasureDimension(result, targetMeasureDimension);
             }
-            result = Math.Round(result, 2);
+            result = Math.Round(result, 2, MidpointRounding.AwayFromZero);
             return result;
         }
 
@@ -443,7 +443,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Measures
                 result = ConvertToPrimaryMeasureWeight(result, sourceMeasureWeight);
                 result = ConvertFromPrimaryMeasureWeight(result, targetMeasureWeight);
             }
-            result = Math.Round(result, 2);
+            result = Math.Round(result, 2, MidpointRounding.AwayFromZero);
             return result;
         }
 

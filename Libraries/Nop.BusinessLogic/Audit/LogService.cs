@@ -206,6 +206,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Audit
             log.PageUrl = pageUrl;
             log.ReferrerUrl = referrerUrl;
             log.CreatedOn = DateTime.UtcNow;
+            
 
             _context.Log.AddObject(log);
             _context.SaveChanges();

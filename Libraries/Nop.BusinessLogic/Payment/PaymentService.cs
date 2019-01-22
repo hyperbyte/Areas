@@ -537,7 +537,7 @@ namespace NopSolutions.NopCommerce.BusinessLogic.Payment
             decimal result = iPaymentMethod.GetAdditionalHandlingFee();
             if (result < decimal.Zero)
                 result = decimal.Zero;
-            result = Math.Round(result, 2);
+            //result = Math.Round(result, 2, MidpointRounding.AwayFromZero);
             return result;
         }
 

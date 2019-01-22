@@ -124,7 +124,7 @@ namespace NopSolutions.NopCommerce.Payment.Methods.PayFlowPro
                 }                
                 
                 invoice.InvNum = orderGuid.ToString();
-                decimal orderTotal = Math.Round(paymentInfo.OrderTotal, 2);
+                decimal orderTotal = paymentInfo.OrderTotal;
                 invoice.Amt = new PayPal.Payments.DataObjects.Currency(orderTotal, IoC.Resolve<ICurrencyService>().PrimaryStoreCurrency.CurrencyCode);
 
                 string creditCardExp = string.Empty;

@@ -93,7 +93,7 @@ namespace NopSolutions.NopCommerce.Web.Modules
             decimal shippingTotalWithDiscount = shippingTotalWithoutDiscount - discountAmount;
             if (shippingTotalWithDiscount < decimal.Zero)
                 shippingTotalWithDiscount = decimal.Zero;
-            shippingTotalWithDiscount = Math.Round(shippingTotalWithDiscount, 2);
+            //shippingTotalWithDiscount = Math.Round(shippingTotalWithDiscount, 2, MidpointRounding.AwayFromZero);
 
             decimal rateBase = this.TaxService.GetShippingPrice(shippingTotalWithDiscount, NopContext.Current.User);
             decimal rate = this.CurrencyService.ConvertCurrency(rateBase, this.CurrencyService.PrimaryStoreCurrency, NopContext.Current.WorkingCurrency);

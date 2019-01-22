@@ -1,6 +1,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" Inherits="NopSolutions.NopCommerce.Web.Modules.ProductInfoControl"
     CodeBehind="ProductInfo.ascx.cs" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ProductShareButton" Src="~/Modules/ProductShareButton.ascx" %>
+<%@ Register TagPrefix="nopCommerce" TagName="ProductPrice1" Src="~/Modules/ProductPrice1.ascx" %>
 
 <script language="javascript" type="text/javascript">
     function UpdateMainImage(url) {
@@ -41,7 +42,7 @@
         </asp:PlaceHolder>
         <div class="clear">
         </div>
-        <asp:ListView ID="lvProductPictures" runat="server" GroupItemCount="3">
+        <asp:ListView ID="lvProductPictures" runat="server" GroupItemCount="4">
             <LayoutTemplate>
                 <table>
                     <asp:PlaceHolder runat="server" ID="groupPlaceHolder"></asp:PlaceHolder>

@@ -7,8 +7,6 @@
     <div class="picture">
         <asp:HyperLink ID="hlImageLink" runat="server" />
     </div>
-    <div class="add-info">
-    </div>
 <%--    <div class="add-info">
         <div class="prices">
             <nopCommerce:ProductPrice2 ID="ctrlProductPrice" runat="server" ProductID='<%#Eval("ProductId") %>' />

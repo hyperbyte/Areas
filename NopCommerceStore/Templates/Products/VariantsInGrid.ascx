@@ -4,7 +4,7 @@
 <%@ Register TagPrefix="nopCommerce" TagName="ProductInfo" Src="~/Modules/ProductInfo.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ProductCategoryBreadcrumb" Src="~/Modules/ProductCategoryBreadcrumb.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ProductRating" Src="~/Modules/ProductRating.ascx" %>
-<%@ Register TagPrefix="nopCommerce" TagName="ProductEmailAFriendButton" Src="~/Modules/ProductEmailAFriendButton.ascx" %>
+<%--<%@ Register TagPrefix="nopCommerce" TagName="ProductEmailAFriendButton" Src="~/Modules/ProductEmailAFriendButton.ascx" %>--%>
 <%@ Register TagPrefix="nopCommerce" TagName="ProductAddToCompareList" Src="~/Modules/ProductAddToCompareList.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="ProductSpecs" Src="~/Modules/ProductSpecifications.ascx" %>
 <%@ Register TagPrefix="nopCommerce" TagName="RelatedProducts" Src="~/Modules/RelatedProducts.ascx" %>
@@ -31,8 +31,7 @@
         <nopCommerce:ProductRating ID="ctrlProductRating" runat="server"></nopCommerce:ProductRating>
         <div class="clear">
         </div>
-        <nopCommerce:ProductEmailAFriendButton ID="ctrlProductEmailAFriendButton" runat="server">
-        </nopCommerce:ProductEmailAFriendButton>
+        <%--<nopCommerce:ProductEmailAFriendButton ID="ctrlProductEmailAFriendButton" runat="server" />--%>
         &nbsp;
         <nopCommerce:ProductAddToCompareList ID="ctrlProductAddToCompareList" runat="server">
         </nopCommerce:ProductAddToCompareList>

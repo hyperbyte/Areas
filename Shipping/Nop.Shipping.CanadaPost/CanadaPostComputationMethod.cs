@@ -228,7 +228,7 @@ namespace NopSolutions.NopCommerce.Shipping.Methods.CanadaPost
                 //Canada Post uses kg(s)
                 decimal unitWeight = sci.TotalWeight / sci.Quantity;
                 item.Weight = IoC.Resolve<IMeasureService>().ConvertWeight(unitWeight, IoC.Resolve<IMeasureService>().BaseWeightIn, usedMeasureWeight);
-                item.Weight = Math.Round(item.Weight, 2);
+                item.Weight = Math.Round(item.Weight, 2, MidpointRounding.AwayFromZero);
                 if (item.Weight == decimal.Zero)
                     item.Weight = 0.01M;
                 
