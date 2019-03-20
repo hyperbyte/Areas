@@ -17,8 +17,8 @@
         <div class="burst" />
     </div>
     <div class="freeShipping">
-        <asp:LinkButton runat="server" ID="UILinkButtonFreeShipping" PostBackUrl="~/conditionsinfo.aspx">
-            <asp:Label ID="lblFreeShipping" runat="server" CssClass="productFreeShipping" Text="Portes Grátis" />
+        <asp:LinkButton runat="server" ID="UILinkButtonFreeShipping" OnClick="UILinkButtonFreeShipping_Click">
+            <asp:Label ID="lblFreeShipping" runat="server" Text="Portes Grátis" CssClass="productFreeShipping" />
         </asp:LinkButton>
         <div class="burstGray" />
     </div>

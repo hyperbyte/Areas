@@ -201,5 +201,10 @@ namespace NopSolutions.NopCommerce.Web.Modules
                 this.ViewState["ProductVariantId"] = value;
             }
         }
+
+        protected void UILinkButtonFreeShipping_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/conditionsinfo.aspx");
+        }
     }
 }
